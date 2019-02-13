@@ -4,12 +4,13 @@ pipeline {
        stage('Clone Back') {
             steps {
                 sh "rm -rf movie-analyst-api"
-                sh "git clone https://github.com/ScastellanosM/movie-analyst-api.git"
+                sh "git clone movie-analyst-api/https://github.com/ScastellanosM/movie-analyst-api.git"
+                sh "rm -rf movie-analyst-api"
             }
         }
         stage('Build Front'){
             steps {
-                sh "zip -r movie-analyst-api.zip /var/lib/jenkins/workspace/Back_master"      
+                sh "zip -r movie-analyst-api.zip /var/lib/jenkins/workspace/Back_master/movie-analyst-api"      
             }
         }
         stage('Deploy Back Server'){
