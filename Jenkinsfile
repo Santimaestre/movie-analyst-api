@@ -3,7 +3,7 @@ pipeline {
     stages {
         stage('Build Back'){
             steps {
-                sh "zip -r movieanalyst-website.zip /var/lib/jenkins/workspace/Backend_master"      
+                sh "zip -r movie-analyst-api.zip /var/lib/jenkins/workspace/Backend_master"      
             }
         }
         stage('Deploy Back Server'){
