@@ -1,9 +1,9 @@
 pipeline {
     agent any
     stages {
-        stage('Build Front'){
+        stage('Build Back'){
             steps {
-                sh "zip -r movie-analyst-api.zip /var/lib/jenkins/workspace/Back_master/movie-analyst-api"      
+                sh "zip -r movie-analyst-api.zip /var/lib/jenkins/workspace/Back_master"      
             }
         }
         stage('Deploy Back Server'){
