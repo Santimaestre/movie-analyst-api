@@ -10,8 +10,6 @@ pipeline {
             }     
             }
         }
-            }
-        }
         stage('Deploy Back Server'){
             steps {
                dir('/var/lib/jenkins/workspace/Artifacts_repo') {               
