@@ -17,9 +17,8 @@ pipeline {
            }
         }  
         stage("Restart Service"){
-            steps { 
-               dir('/var/lib/jenkins/workspace')[]   
-               sh ' ssh -i "SantiagoCastellanos.pem" ubuntu@11.0.3.105 "echo "Hello"'   
+            steps {   
+               sh ' ssh ubuntu@11.0.3.105 "echo "Hello"'   
            }
         }  
 }
