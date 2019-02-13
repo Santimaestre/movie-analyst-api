@@ -16,6 +16,11 @@ pipeline {
                 sshPublisher(publishers: [sshPublisherDesc(configName: 'ubuntu@11.0.3.105', transfers: [sshTransfer(cleanRemote: false, excludes: '', execCommand: ' tar xvzf movie-analyst-api.tar.gz && rsync -rpa Backend_master/ movie-analyst-api && pm2 stop && pm2 start ', execTimeout: 120000, flatten: false, makeEmptyDirs: false, noDefaultExcludes: false, patternSeparator: '[, ]+', remoteDirectory: '', remoteDirectorySDF: false, removePrefix: '', sourceFiles: 'tar xvzf movie-analyst-api.tar.gz')], usePromotionTimestamp: false, useWorkspaceInPromotion: false, verbose: false)])        
            }
         }  
-    }
+        stage("Restart Service"){
+            steps { 
+               dir('/var/lib/jenkins/workspace')[]   
+               sh ' ssh -i "SantiagoCastellanos.pem" ubuntu@11.0.3.105 "echo "Hello"'   
+           }
+        }  
 }
 }
