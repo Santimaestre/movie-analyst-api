@@ -4,7 +4,7 @@ pipeline {
        stage('Clone Back') {
             steps {
                 sh "rm -rf movie-analyst-api"
-                sh "git clone movie-analyst-api/https://github.com/ScastellanosM/movie-analyst-api.git"
+                sh "git clone /movie-analyst-api/https://github.com/ScastellanosM/movie-analyst-api.git"
                 sh "rm -rf movie-analyst-api"
             }
         }
