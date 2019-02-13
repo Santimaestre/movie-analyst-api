@@ -21,5 +21,5 @@ pipeline {
                sh ' ssh ubuntu@11.0.3.105 "echo "Hello"'   
            }
         }  
-}
+    }
 }
