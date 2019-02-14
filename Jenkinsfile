@@ -19,7 +19,7 @@ pipeline {
         }
         stage("Restart Service Back"){
             steps {   
-               sh ' ssh ubuntu@11.0.3.105 "sudo chown ubuntu:ubuntu /home/ubuntu/.pm2/rpc.sock /home/ubuntu/.pm2/pub.sock ; pm2 restart server"' 
+               sh ' ssh ubuntu@11.0.3.105 "sudo chown ubuntu:ubuntu /home/ubuntu/.pm2/rpc.sock /home/ubuntu/.pm2/pub.sock pm2 stop server ; pm2 start server"' 
            }
          }      
 } 
