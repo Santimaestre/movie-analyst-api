@@ -19,8 +19,7 @@ pipeline {
         }
         stage("Restart Service Back"){
             steps {   
-               sh ' ssh ubuntu@11.0.3.105 "pm2 stop server"'
-               sh ' ssh ubuntu@11.0.3.105 "pm2 start server"'   
+               sh ' ssh ubuntu@11.0.3.105 "pm2 restart server"' 
            }
          }      
 } 
