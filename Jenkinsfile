@@ -16,9 +16,10 @@ pipeline {
                 sshPublisher(publishers: [sshPublisherDesc(configName: 'ubuntu@11.0.3.105', transfers: [sshTransfer(cleanRemote: false, excludes: '', execCommand: ' tar xvzf movie-analyst-api.tar.gz && rsync -rpa Backend_master/ movie-analyst-api && pm2 stop && pm2 start ', execTimeout: 120000, flatten: false, makeEmptyDirs: false, noDefaultExcludes: false, patternSeparator: '[, ]+', remoteDirectory: '', remoteDirectorySDF: false, removePrefix: '', sourceFiles: 'tar xvzf movie-analyst-api.tar.gz')], usePromotionTimestamp: false, useWorkspaceInPromotion: false, verbose: false)])        
            }
         }  
-        stage("Restart Service"){
+        stage("Restart Service Back"){
             steps {   
-               sh ' ssh ubuntu@11.0.1.17 \"echo Hello\"'   
+               sh ' ssh ubuntu@11.0.3.105 "pm2 stop server"'
+               sh ' ssh ubuntu@11.0.3.105 "pm2 start server"'   
            }
         }  
     }
